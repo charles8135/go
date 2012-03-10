@@ -1,0 +1,17 @@
+go脚本实现了可以自动登陆服务器的功能
+
+配置方法：
+1. 设置go脚本第一行中声明的expect所在路径，请根据自己机器实际情况进行修改
+2. 修改host.conf文件，按照以下格式编写host.conf配置项
+   {host_alias},{host_name},{username},{password}
+示例格式如：
+dev01,dev01.baidu.com,liuyue,123456
+dev02,dev02.baidu.com,liuyue,213456
+
+   其中，host_alias是对host_name定义的一个简短的别名，执行时参数中需要指定
+
+使用方法：
+1. 查看可以登陆的服务器列表
+go list
+2. 自动登陆指定的服务器
+./go {host_alias}
