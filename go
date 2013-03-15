@@ -19,6 +19,15 @@ proc parse_host_conf {} {
     }
     set fp [open "$host_conf_file" r]
     while {[gets $fp line] >= 0} {
+        set line [string trim "$line"]
+        set length [string length $line]
+        if {$length == 0} {
+            continue
+        }
+        set first_tag [string index $line 0]
+        if {$first_tag == "#"} {
+            continue
+        }
         set host_info [split $line ","]
         foreach {key host username password} $host_info break
         set host_map($key) [list $host $username $password]

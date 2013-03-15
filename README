@@ -5,6 +5,7 @@ go脚本实现了可以自动登陆服务器的功能
 2. 修改host.conf文件，按照以下格式编写host.conf配置项
    {host_alias},{host_name},{username},{password}
 示例格式如：
+# your comment
 dev01,dev01.baidu.com,liuyue,123456
 dev02,dev02.baidu.com,liuyue,213456
 
