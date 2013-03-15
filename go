@@ -60,14 +60,10 @@ proc get_ssh_info {host_alias} {
 }
 
 proc get_host_list {} {
-    global host_map
-    set count [array size host_map]
-    if {$count == 0} {
-        puts "The host list is empty..."
-        exit 0
-    }
-    foreach {k v} [array get host_map *] {
-        puts "$k\t\t[lindex $v 0]" 
+    global host_conf_file
+    set fp [open "$host_conf_file" r]
+    while {[gets $fp line] >= 0} {
+        puts $line
     }
 }
 
